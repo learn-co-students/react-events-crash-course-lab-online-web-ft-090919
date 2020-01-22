@@ -10,6 +10,7 @@ export default class ChromeBoisDomain extends Component {
      * function that has been provided and is already imported
      * (`drawChromeBoiAtCoords` expects two arguments, an x and a y coordinate)
      */
+    drawChromeBoiAtCoords(event.height,event.width)
   }
   
   /* TODO: Create an event handler which, when fired, invokes the provided
@@ -28,6 +29,7 @@ export default class ChromeBoisDomain extends Component {
     return (
       <canvas 
         onMouseMove={this.handleMouseMove}
+        onKeyPress=
         width='900'
         height='600'
         tabIndex="0">
