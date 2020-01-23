@@ -6,12 +6,21 @@ import {
 } from "./canvasHelpers.js";
 
 export default class ChromeBoisDomain extends Component {
-  handleMouseMove = event => {};
+  handleMouseMove = event => {
+    drawChromeBoiAtCoords(event.clientX, event.clientY);
+  };
 
-  /* TODO: Create an event handler which, when fired, invokes the provided
-   * `toggleCycling` function with no arguments. Don't forget the click event
-   * listener that should fire it!
-   */
+  handleClick = event => {
+    toggleCycling();
+  };
+
+  handleKeyPress = event => {
+    if (event.key === "a") {
+      resize("+");
+    } else if (event.key === "s") {
+      resize("-");
+    }
+  };
 
   /* TODO: Add an event listener to the `<canvas>` element to capture when a key
   /* is pressed. When a key is pressed, an event handler should invoke the the
@@ -23,7 +32,9 @@ export default class ChromeBoisDomain extends Component {
   render() {
     return (
       <canvas
+        onKeyPress={this.handleKeyPress}
         onMouseMove={this.handleMouseMove}
+        onClick={this.handleClick}
         width="900"
         height="600"
         tabIndex="0"
